@@ -52,7 +52,7 @@ parameters:
         - description: "Create a new PR with any updates"
           text: "update in a PR"
           value: "inPR"
-  - repoFilters:
+  - repoFilter:
       description: "The set of Repositories."
       displayName: "Repository Scope"
       name: "scope"
