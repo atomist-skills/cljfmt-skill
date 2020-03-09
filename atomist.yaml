@@ -17,11 +17,11 @@
 skill:
   name: "atomist/cljformat"
   title: Clojure(script) Code Formatter
-  version: "0.1.0"
+  version: "0.1.1"
   author: Atomist
-  description: Keep .clj files formatted
+  description: Keep .clj(s) files formatted
   long_description: |
-    Use the cljfmt tool to maintain a standard formatting across *.clj files
+    Use the cljfmt tool to maintain a standard formatting across *.clj(s) files
   category:
   - productivity
   license: Apache-2.0

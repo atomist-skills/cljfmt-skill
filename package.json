@@ -1,10 +1,10 @@
 {
-  "name": "update-clojure-tools-dependencies",
+  "name": "@atomist/cljformat",
   "version": "0.1.0",
   "author": "jim@atomist.com",
-  "description": "use this to pull in a skill's deps.edn dependencies",
+  "description": "Format clojure(script) code",
   "scripts": {
-    "build:watch": "shadow-cljs watch script",
+    "watch": "shadow-cljs watch script",
     "build": "shadow-cljs release release"
   },
   "dependencies": {
@@ -19,5 +19,6 @@
   "devDependencies": {
     "shadow-cljs": "^2.8.69",
     "source-map-support": "0.5.9"
-  }
+  },
+  "main": "app.js"
 }
