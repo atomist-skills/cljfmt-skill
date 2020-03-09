@@ -1,6 +1,6 @@
 # `atomist/cljformat`
 
-## Problem
+## Problem?
 
 ## What it does
 
