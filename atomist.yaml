@@ -16,7 +16,7 @@
 
 skill:
   name: "atomist/cljformat"
-  title: validate code formatting using cljfmt on new Pushes
+  title: Clojure(script) Code Formatter
   version: "0.1.0"
   author: Atomist
   description: Keep .clj files formatted
