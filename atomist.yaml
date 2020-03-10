@@ -17,7 +17,7 @@
 skill:
   name: "atomist/cljformat"
   title: Clojure(script) Code Formatter
-  version: "0.1.1"
+  version: "0.1.2"
   author: Atomist
   description: Keep .clj(s) files formatted
   long_description: |
@@ -37,7 +37,7 @@ skill:
     name: nodejs10
     entry_point: eventhandler
     memory: 256
-    timeout: 60
+    timeout: 360
 
 parameters:
   - singleChoice:
