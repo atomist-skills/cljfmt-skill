@@ -4,7 +4,7 @@
   "author": "jim@atomist.com",
   "description": "Format clojure(script) code",
   "scripts": {
-    "watch": "shadow-cljs watch script",
+    "build:watch": "shadow-cljs watch script",
     "build": "shadow-cljs release release"
   },
   "dependencies": {

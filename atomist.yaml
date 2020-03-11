@@ -28,7 +28,7 @@ skill:
   homepage: https://github.com/atomist-skills/cljformat-skill
   repository: https://github.com/atomist-skills/cljformat-skill
   icon: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Clojure_logo.svg/2000px-Clojure_logo.svg.png
-  dispatch: single
+  dispatch: multiple
 
   package:
     use: 'atomist/package-cljs-skill'
