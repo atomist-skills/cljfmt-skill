@@ -17,7 +17,7 @@
 skill:
   name: "atomist/cljformat"
   title: Clojure(script) Code Formatter
-  version: "0.1.2"
+  version: "0.1.3"
   author: Atomist
   description: Keep .clj(s) files formatted
   long_description: |
