@@ -17,7 +17,7 @@
 skill:
   name: "atomist/cljformat"
   title: Clojure(script) Code Formatter
-  version: 0.1.4
+  version: 0.1.5
   author: Atomist
   description: Keep .clj(s) files formatted
   long_description: |
@@ -49,6 +49,9 @@ parameters:
         - description: "Push changes using a Commit on an existing branch ref"
           text: "update directly"
           value: "onBranch"
+        - description: "Push changes using a Commit on default branch only"
+          text: "update default branch"
+          value: "onDefaultBranch"
         - description: "Create a new PR with any updates"
           text: "update in a PR"
           value: "inPR"
