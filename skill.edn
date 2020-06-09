@@ -1,0 +1,56 @@
+{:description "Keep .clj(s) files formatted",
+ :category ["productivity"],
+ :package {:use "atomist/package-cljs-skill"},
+ :repository "https://github.com/atomist-skills/cljformat-skill",
+ :license "Apache-2.0",
+ :homepage "https://github.com/atomist-skills/cljformat-skill",
+ :displayName "cljformat skill",
+ :name "atomist/cljformat",
+ :long_description
+ "Use the cljfmt tool to maintain a standard formatting across *.clj(s) files\n",
+ :icon
+ "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Clojure_logo.svg/2000px-Clojure_logo.svg.png",
+ :title "Clojure(script) Code Formatter",
+ :author "Atomist",
+ :dispatch "multiple",
+ :iconUrl
+ "https://raw.githubusercontent.com/cljs/logo/master/cljs.png",
+ :runtime
+ {:name "nodejs10",
+  :entry_point "eventhandler",
+  :memory 1024,
+  :timeout 360},
+ :homepageUrl "https://github.com/atomist-skills/cljformat-skill",
+ :version "0.1.5",
+ :parameters
+ [{:singleChoice
+   {:description
+    "Choose a policy for how to push any formatting changes required",
+    :displayName "Update Policy",
+    :name "policy",
+    :required true,
+    :options
+    [{:description
+      "Push changes using a Commit on an existing branch ref",
+      :text "update directly",
+      :value "onBranch"}
+     {:description
+      "Push changes using a Commit on default branch only",
+      :text "update default branch",
+      :value "onDefaultBranch"}
+     {:description "Create a new PR with any updates",
+      :text "update in a PR",
+      :value "inPR"}]}}
+  {:repoFilter
+   {:description "The set of Repositories.",
+    :displayName "Repository Scope",
+    :name "scope",
+    :required false}}],
+ :namespace "atomist",
+ :artifacts
+ {:gcf
+  [{:name "package-cljs-skill",
+    :entryPoint "eventhandler",
+    :memory 512, 
+    :runtime "nodejs10", 
+    :timeout 60}]}}
