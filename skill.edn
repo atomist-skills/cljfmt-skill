@@ -1,15 +1,21 @@
-{:namespace "atomist",
- :name "cljformat",
- :description "Keep .clj(s) files formatted",
+{:description "Keep .clj(s) files formatted",
  :category ["productivity"],
  :repository "https://github.com/atomist-skills/cljformat-skill",
  :license "Apache-2.0",
+ :resourceProviders
+ [{:name "github",
+   :description "GitHub",
+   :typeName "GitHubAppResourceProvider",
+   :minRequired 1,
+   :maxAllowed 1}],
  :homepage "https://github.com/atomist-skills/cljformat-skill",
  :displayName "cljformat skill",
+ :name "cljformat",
  :title "Clojure(script) Code Formatter",
  :author "Atomist",
  :dispatch "multiple",
- :iconUrl "https://raw.githubusercontent.com/cljs/logo/master/cljs.png",
+ :iconUrl
+ "https://raw.githubusercontent.com/cljs/logo/master/cljs.png",
  :homepageUrl "https://github.com/atomist-skills/cljformat-skill",
  :version "0.1.5",
  :parameters
@@ -36,16 +42,11 @@
     :displayName "Repository Scope",
     :name "scope",
     :required false}}],
- :resourceProviders
- [{:name "github",
-   :description "GitHub",
-   :typeName "GitHubAppResourceProvider",
-   :minRequired 1,
-   :maxAllowed 1}]
+ :namespace "atomist",
  :artifacts
  {:gcf
   [{:name "package-cljs-skill",
     :entryPoint "eventhandler",
-    :memory 1024,
+    :memory 1024, 
     :runtime "nodejs10", 
     :timeout 360}]}}
