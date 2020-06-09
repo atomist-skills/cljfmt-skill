@@ -31,10 +31,10 @@
     (go
       (cond (= "inPR" (:policy request))
             (<! (handler (assoc request
-                           :configuration {:branch (gstring/format "cljfmt-%s" (-> request :ref :branch))
-                                           :target-branch (-> request :ref :branch)
-                                           :body (str "Configuration that triggered this change:\n" (:configuration request))
-                                           :title "Format code in line with current guidelines"})))
+                                :configuration {:branch (gstring/format "cljfmt-%s" (-> request :ref :branch))
+                                                :target-branch (-> request :ref :branch)
+                                                :body (str "Configuration that triggered this change:\n" (:configuration request))
+                                                :title "Format code in line with current guidelines"})))
 
             (or (= "onBranch" (:policy request))
                 (and (= "onDefaultBranch" (:policy request))
