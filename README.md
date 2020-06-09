@@ -40,9 +40,15 @@ At least one repository must be selected.
 3.  **Default Formatting rules**
 
     [cljfmt configuration documentation][configuration] outlines different ways that users can control how the code
-    is formatted.  A single shared set of rules (in the form of a GitHub gist), can be configured to drive this skill.
-    Any repo that contains a `cljfmt.edn` in the root will use these rules instead.  If using a gist url,
-    the gist must be either public, or must be stored in a GitHub organization authorized with the GitHub application.
+    is formatted.  A custom configuration (in the form of a GitHub gist, or a github permanent link), will
+    be used if provided.  This skill will download the content from that repo, and pass it as the options map to
+    `cljfmt`. 
+    
+    A `cljfmt.edn` in the root of any Repo being formatted, will over ride any defaults.  
+    
+    In practice, the "do nothing" approach works quite well here.  The 
+    [defaults from `cljfmt`](https://github.com/weavejester/cljfmt/blob/master/cljfmt/resources/cljfmt/indents/clojure.clj) 
+    are a great start.  
 
 # How to Use
 
