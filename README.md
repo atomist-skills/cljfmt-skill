@@ -53,6 +53,10 @@ and less frequent as teams adopt to their internal formatting conventions.
 
 Code reviews are so much better when your team is using the same formatting.  And a huge thanks to [cljfmt](cljfmt)!!!
 
+[cljfmt]: https://github.com/weavejester/cljfmt
+[editor-support]: https://github.com/weavejester/cljfmt#editor-support
+[configuration]: https://github.com/weavejester/cljfmt#configuration
+
 <!---atomist-skill-readme:end--->
 
 ---
@@ -62,6 +66,3 @@ Need Help?  [Join our Slack workspace][slack].
 
 [atomist]: https://atomist.com/ (Atomist - How Teams Deliver Software)
 [slack]: https://join.atomist.com/ (Atomist Community Slack)
-[cljfmt]: https://github.com/weavejester/cljfmt
-[editor-support]: https://github.com/weavejester/cljfmt#editor-support
-[configuration]: https://github.com/weavejester/cljfmt#configuration

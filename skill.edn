@@ -31,6 +31,12 @@
      {:description "Create a new PR with any updates",
       :text "update in a PR",
       :value "inPR"}]}}
+  {:string
+   {:description
+    "Url for a GitHub gist containing the [cljfmt configuration](https://github.com/weavejester/cljfmt#configuration)",
+    :displayName "Optional Config Gist Url",
+    :name "config",
+    :required false}}
   {:repoFilter
    {:description "The set of Repositories.",
     :displayName "Repository Scope",
