@@ -9,19 +9,7 @@
             [goog.string.format])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
-(defn run-cljfmt
-  [basedir]
-  (go
-    (try
-      (cljfmt/cljfmt basedir)
-      :done
-      (catch :default ex
-        (log/error "unable to run cljfmt")
-        (log/error ex)
-        {:error ex
-         :message "unable to run cljfmt"}))))
-
-(defn is-default-branch?
+(defn- is-default-branch?
   [request]
   (let [push (-> request :data :Push first)]
     (= (:branch push) (-> push :repo :defaultBranch))))
@@ -49,21 +37,6 @@
             :else
             (<! (api/finish request :failure "skill requires either 'update directly' or 'update in PR' to be configured"))))))
 
-(defn- handle-push-event [request]
-  ((-> (api/finished)
-       (api/from-channel #(go (<! (run-cljfmt (-> % :project :path)))))
-       (api/edit-inside-PR :configuration)
-       (api/clone-ref)
-       (check-configuration)
-       (api/add-skill-config :policy :default-branch)
-       (api/extract-github-token)
-       (api/create-ref-from-event)
-       (api/status :send-status (fn [request]
-                                  (cond (= :raised (-> request :edit-result))
-                                        (gstring/format "**cljfmt skill** raised a PR")
-                                        :else
-                                        "handled Push successfully")))) request))
-
 (defn ^:export handler
   "handler
     must return a Promise - we don't do anything with the value
@@ -74,4 +47,23 @@
   (api/make-request
    data
    sendreponse
-   (api/dispatch {:OnAnyPush handle-push-event})))
+   (api/dispatch {:OnAnyPush (-> (api/finished)
+                                 (api/from-channel #(go (<! (try
+                                                              (cljfmt/cljfmt (-> % :project :path))
+                                                              :done
+                                                              (catch :default ex
+                                                                (log/error "unable to run cljfmt")
+                                                                (log/error ex)
+                                                                {:error ex
+                                                                 :message "unable to run cljfmt"})))))
+                                 (api/edit-inside-PR :configuration)
+                                 (api/clone-ref)
+                                 (check-configuration)
+                                 (api/add-skill-config :policy :default-branch)
+                                 (api/extract-github-token)
+                                 (api/create-ref-from-event)
+                                 (api/status :send-status (fn [request]
+                                                            (cond (= :raised (-> request :edit-result))
+                                                                  (gstring/format "**cljfmt skill** raised a PR")
+                                                                  :else
+                                                                  "handled Push successfully"))))})))

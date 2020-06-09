@@ -14,7 +14,7 @@
   :test {:extra-paths ["test"]},
   :cljfmt
   {:extra-deps {cljfmt {:mvn/version "0.6.7"}},
-   :main-opts ["-m" "cljfmt.main" "fix" "src" "test"]},
+   :main-opts ["-m" "cljfmt.main" "fix" "src"]},
   :version
   {:extra-deps
    {metav
