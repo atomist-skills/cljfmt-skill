@@ -15,21 +15,20 @@
 (defn run-cljfmt
   [project]
   (go
-   (try
+    (try
      ;; weird that cljfmt is synchronous
-     (cljfmt/cljfmt (. ^js project -baseDir))
-     :done
-     (catch :default ex
-       (log/error "unable to run cljfmt")
-       (log/error ex)
-       {:error ex
-        :message "unable to run cljfmt"}))))
+      (cljfmt/cljfmt (. ^js project -baseDir))
+      :done
+      (catch :default ex
+        (log/error "unable to run cljfmt")
+        (log/error ex)
+        {:error ex
+         :message "unable to run cljfmt"}))))
 
 (defn compose-wrapper
   [request project]
   (go
-   (<! (((:wrapper request) run-cljfmt) project))))
-
+    (<! (((:wrapper request) run-cljfmt) project))))
 
 (defn is-default-branch?
   [request]
