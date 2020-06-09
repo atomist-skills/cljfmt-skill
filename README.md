@@ -16,10 +16,6 @@ designed to add automatic clojure formatting to any project running on GitHub.
 
 # Before you get started
 
-Connect and configure these integrations:
-
-1. **GitHub**
-
 The **GitHub** integration must be configured in order to use this skill. 
 At least one repository must be selected. 
 
