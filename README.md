@@ -38,13 +38,15 @@ At least one repository must be selected.
     [cljfmt configuration documentation][configuration] outlines different ways that users can control how the code
     is formatted.  A custom configuration (in the form of a GitHub gist, or a github permanent link), will
     be used if provided.  This skill will download the content from that repo, and pass it as the options map to
-    `cljfmt`. 
+    `cljfmt`. For example:
+    
+    <script src="https://gist.github.com/slimslenderslacks/2a1f499e302c8e5dbe2d68fb75031f2b.js"></script>
     
     A `cljfmt.edn` in the root of any Repo being formatted, will over ride any defaults.  
     
     In practice, the "do nothing" approach works quite well here.  The 
     [defaults from `cljfmt`](https://github.com/weavejester/cljfmt/blob/master/cljfmt/resources/cljfmt/indents/clojure.clj) 
-    are a great start.  
+    are a great start.
 
 # How to Use
 
