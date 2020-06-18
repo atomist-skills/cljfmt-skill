@@ -12,7 +12,7 @@
  :author "Atomist",
  :dispatch "multiple",
  :iconUrl
- "https://raw.githubusercontent.com/cljs/logo/master/cljs.png",
+ "https://clojure.org/images/clojure-logo-120b.png",
  :homepageUrl "https://github.com/atomist-skills/cljformat-skill",
  :parameters
  [{:singleChoice
