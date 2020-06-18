@@ -1,6 +1,5 @@
-{:description "Keep .clj(s) files formatted",
- :category ["productivity"],
- :repository "https://github.com/atomist-skills/cljformat-skill",
+{:description "A tool for formatting Clojure code",
+ :category ["CODE_REVIEW"],
  :license "Apache-2.0",
  :resourceProviders
  [{:name "github",
@@ -8,40 +7,41 @@
    :typeName "GitHubAppResourceProvider",
    :minRequired 1,
    :maxAllowed 1}],
- :homepage "https://github.com/atomist-skills/cljformat-skill",
- :displayName "cljformat skill",
- :name "cljformat",
- :title "Clojure(script) Code Formatter",
+ :displayName "cljfmt",
+ :name "cljfmt-skill",
  :author "Atomist",
  :dispatch "multiple",
  :iconUrl
  "https://raw.githubusercontent.com/cljs/logo/master/cljs.png",
  :homepageUrl "https://github.com/atomist-skills/cljformat-skill",
- :version "0.1.5",
  :parameters
  [{:singleChoice
    {:description
-    "Choose a policy for how to push any formatting changes required",
-    :displayName "Update Policy",
-    :name "policy",
+    "Run cljfmt fix and choose how fixes should be committed back into the repository",
+    :displayName "Fix Formatting",
+    :name "fix",
     :required true,
     :options
     [{:description
-      "Push changes using a Commit on an existing branch ref",
-      :text "update directly",
+      "Commit to any branch",
+      :text "Commit to any branch",
       :value "onBranch"}
      {:description
-      "Push changes using a Commit on default branch only",
-      :text "update default branch",
+      "Commit to default branch only",
+      :text "Commit to default branch only",
       :value "onDefaultBranch"}
-     {:description "Create a new PR with any updates",
-      :text "update in a PR",
+     {:description "Raise pull request for default branch only; commit to other branches",
+      :text "Raise pull request for default branch only; commit to other branches",
+      :value "inPROnDefaultBranch"}
+     {:description "Raise pull request for default branch only",
+      :text "Raise pull request for any branch",
       :value "inPR"}]}}
   {:string
    {:description
-    "Url for a GitHub gist containing the [cljfmt configuration](https://github.com/weavejester/cljfmt#configuration)",
-    :displayName "Optional Config Gist Url",
+    "Add a [cljfmt configuration](https://github.com/weavejester/cljfmt#configuration)",
+    :displayName "Configuration",
     :name "config",
+    :lineStyle "multiple",
     :required false}}
   {:repoFilter
    {:description "The set of Repositories.",
@@ -51,7 +51,7 @@
  :namespace "atomist",
  :artifacts
  {:gcf
-  [{:name "package-cljs-skill",
+  [{:name "cljfmt",
     :entryPoint "eventhandler",
     :memory 1024, 
     :runtime "nodejs10", 

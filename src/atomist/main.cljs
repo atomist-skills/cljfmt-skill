@@ -17,25 +17,29 @@
 (defn- check-configuration [handler]
   (fn [request]
     (go
-      (cond (= "inPR" (:policy request))
+      (cond (or
+             (= "inPR" (:fix request))
+             (and
+              (= "inPROnDefaultBranch" (:fix request))
+              (is-default-branch? request)))
             (<! (handler (assoc request
-                                :configuration {:branch (gstring/format "cljfmt-%s" (-> request :ref :branch))
-                                                :target-branch (-> request :ref :branch)
-                                                :body (str "Configuration that triggered this change:\n" (:configuration request))
-                                                :title "Format code in line with current guidelines"})))
+                           :configuration {:branch (gstring/format "cljfmt-%s" (-> request :ref :branch))
+                                           :target-branch (-> request :ref :branch)
+                                           :body (str "Configuration that triggered this change:\n" (:configuration request))
+                                           :title "cljfmt fix"})))
 
-            (or (= "onBranch" (:policy request))
-                (and (= "onDefaultBranch" (:policy request))
-                     (is-default-branch? request)))
+            (or
+             (= "onBranch" (:fix request))
+             (and
+              (= "inPROnDefaultBranch" (:fix request))
+              (not (is-default-branch? request)))
+             (and
+              (= "onDefaultBranch" (:fix request))
+              (is-default-branch? request)))
             (<! (handler (assoc request :commit-on-master true)))
 
-            (and
-             (= "onDefaultBranch" (:policy request))
-             (not (is-default-branch? request)))
-            (<! (api/finish request :success "Not formatting as this is not the default branch" :visibility :hidden))
-
             :else
-            (<! (api/finish request :failure "skill requires either 'update directly' or 'update in PR' to be configured"))))))
+            (<! (api/finish request :success (gstring/format "not fixing %s" (:fix request)) :visibility :hidden))))))
 
 (defn ^:export handler
   "handler
@@ -59,7 +63,7 @@
                                  (api/edit-inside-PR :configuration)
                                  (api/clone-ref)
                                  (check-configuration)
-                                 (api/add-skill-config :policy :default-branch)
+                                 (api/add-skill-config :fix :config)
                                  (api/extract-github-token)
                                  (api/create-ref-from-event)
                                  (api/status :send-status (fn [request]
