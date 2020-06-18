@@ -3,6 +3,6 @@
 
 (def module-name "cljformat-skill")
 (def path ".")
-(def version "0.1.11")
-(def tag "0.1.11")
-(def generated-at "2020-06-18T06:27:59Z")
+(def version "0.1.12")
+(def tag "0.1.12")
+(def generated-at "2020-06-18T07:11:12Z")
