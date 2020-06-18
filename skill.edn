@@ -22,16 +22,16 @@
     :name "fix",
     :required true,
     :options
-    [{:description
-      "Commit to any branch",
+    [{:description "Commit to any branch",
       :text "Commit to any branch",
       :value "onBranch"}
-     {:description
-      "Commit to default branch only",
+     {:description "Commit to default branch only",
       :text "Commit to default branch only",
       :value "onDefaultBranch"}
-     {:description "Raise pull request for default branch only; commit to other branches",
-      :text "Raise pull request for default branch only; commit to other branches",
+     {:description
+      "Raise pull request for default branch only; commit to other branches",
+      :text
+      "Raise pull request for default branch only; commit to other branches",
       :value "inPROnDefaultBranch"}
      {:description "Raise pull request for default branch only",
       :text "Raise pull request for any branch",
