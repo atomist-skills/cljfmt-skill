@@ -2,17 +2,13 @@
 
 <!---atomist-skill-readme:start--->
 
-Activate the Clojure/ClojureScript formatting tool [cljfmt][cljfmt] so that it
-runs on all Pushes to GitHub.   
+Activate the Clojure/ClojureScript formatting tool [cljfmt][cljfmt] on any Push event to a repository containing
+clojure files.
   
 # What it's useful for
 
-There are already great ways to integrate [cljfmt][cljfmt] into your local development flow.  See the docs on
-[editor support here][editor-support].  This skill activates the tool for those Commits that slip through, or 
-for users that do not have cljfmt integrated into the local developer flows.
-
-This can be integrated without changing how you do CI, and without making any changes to existing projects.  It is
-designed to add automatic clojure formatting to any project running on GitHub.
+Check the formatting of your Clojure code whenever a repository is updated.  If there are any formatting fixes required,
+raise a PR, or send a Commit back to the Repository.
 
 # Before you get started
 
@@ -21,39 +17,47 @@ At least one repository must be selected.
 
 # How to configure
 
-1.  **Choose which branches should be automatically formatted**
+1.  **Choose which branches should be automatically formatted, and how fixes should be submitted**
 
-    Users can choose between 3 options:
-    1. `update default branch` - run `cljfmt fix` only for the default branch.  Push changes directly to master.
-    2. `update in a PR` - run on all branch ref pushes.  Changes are pushed via Pull Request.
-    3. `update all branches` - reformats all branches
-        
-2.  **Select some Repos**
-
-    Either select all, if all your Repositories should participate, or choose a subset of Repositories that should 
-    stay formatted.  This skill will take no action on repositories that do not contain `.clj`, `.cljs`, or `cljc` files.
+    Users can choose between 4 options:
+    1. `Commit to default branch only` - only format the default branch, and push fixes directly to the default branch
+    2. `Commit to any branch` - push formatting fixes to all branches
+    3. `Raise pull request for default branch only; commit to other branches` - formatting fixes for the default branch
+        should raise PRs.  Fixes to other branches should commit directly to the branch.
+    4. `Raise pull request for any branch` - always use Pull Requests.
     
-3.  **Default Formatting rules**
+    ![screenshot1](docs/images/screenshot1.png)
+    
+2.  **Default Formatting rules**
 
     [cljfmt configuration documentation][configuration] outlines different ways that users can control how the code
-    is formatted.  A custom configuration (in the form of a GitHub gist, or a github permanent link), will
-    be used if provided.  This skill will download the content from that repo, and pass it as the options map to
-    `cljfmt`. For example:
-    
-    <script src="https://gist.github.com/slimslenderslacks/2a1f499e302c8e5dbe2d68fb75031f2b.js"></script>
-    
-    A `cljfmt.edn` in the root of any Repo being formatted, will over ride any defaults.  
+    is formatted.  
     
     In practice, the "do nothing" approach works quite well here.  The 
     [defaults from `cljfmt`](https://github.com/weavejester/cljfmt/blob/master/cljfmt/resources/cljfmt/indents/clojure.clj) 
     are a great start.
+    
+    If you would like to customize the configuration of `cljfmt`, you can add your custom rules here
+    
+    ![screenshot2](docs/images/screenshot2.png)
+                    
+    A `cljfmt.edn` in the root of any Repo being formatted, will over ride any defaults.
+    
+3.  **Select some Repos**
+
+    Either select all, if all your Repositories should participate, or choose a subset of Repositories that should 
+    stay formatted.  This skill will take no action on repositories that do not contain `.clj`, `.cljs`, or `cljc` files.
+    
+    ![repo-filter](docs/images/repo-filter.png)    
 
 # How to Use
 
-If users are using standard formatting conventions (or if `cljfmt` is running as part of their local dev workflow),
-then this skill will mostly do nothing!  However, if there are lots of unformatted Commits arrived at GitHub, then this
-skill will make Commits, and raise Pull Requests with helpful formatting.  In practice, these Commits tend to get less
-and less frequent as teams adopt to their internal formatting conventions.
+There are already great ways to integrate [cljfmt][cljfmt] into your local development flow.  See the docs on
+[editor support here][editor-support].  However, this skill validates and fixes unformatted Commits that still manage
+to be pushed.  If you never push unformatted Commits, you won't notice this skill is even running.
+
+It does not rely on any project configuration (e.g deps.edn or leiningen project.clj).  Instead,
+it uses the Atomist GitHub application to run `cljfmt fix` whenever the a Repo is updated.  
 
 Code reviews are so much better when your team is using the same formatting.  And a huge thanks to [cljfmt](cljfmt)!!!
 
