@@ -38,7 +38,7 @@
       :value "inPR"}]}}
   {:string
    {:description
-    "Add a [cljfmt configuration](https://github.com/weavejester/cljfmt#configuration)",
+    "Add your own [configuration](https://github.com/weavejester/cljfmt#configuration). Formatting rules specified here will be used in addition to the [defaults from `cljfmt`](https://github.com/weavejester/cljfmt/blob/master/cljfmt/resources/cljfmt/indents/clojure.clj)",
     :displayName "Configuration",
     :name "config",
     :lineStyle "multiple",
