@@ -7,13 +7,13 @@
 (def default-options
   {:project-root "."
    :file-pattern #"\.clj[csx]?$"
-   :ansi?        true
+   :ansi? true
    :indentation? true
-   :insert-missing-whitespace?      true
-   :remove-surrounding-whitespace?  true
-   :remove-trailing-whitespace?     true
+   :insert-missing-whitespace? true
+   :remove-surrounding-whitespace? true
+   :remove-trailing-whitespace? true
    :remove-consecutive-blank-lines? true
-   :indents   cljfmt.core/default-indents
+   :indents cljfmt.core/default-indents
    :alias-map {}})
 
 (defn grep [re dir]

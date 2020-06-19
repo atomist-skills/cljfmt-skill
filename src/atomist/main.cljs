@@ -39,14 +39,14 @@
               (= "inPROnDefaultBranch" (:fix request))
               (is-default-branch? request)))
             (<! (handler (assoc request
-                           :atomist.gitflows/configuration
-                           {:branch (gstring/format "cljfmt-%s" (-> request :ref :branch))
-                            :target-branch (-> request :ref :branch)
-                            :body (gstring/format
-                                   "running [cljfmt fix](https://github.com/weavejester/cljfmt) with configuration %s"
-                                   (-> request :configuration :name))
-                            :title "cljfmt fix"
-                            :type :in-pr})))
+                                :atomist.gitflows/configuration
+                                {:branch (gstring/format "cljfmt-%s" (-> request :ref :branch))
+                                 :target-branch (-> request :ref :branch)
+                                 :body (gstring/format
+                                        "running [cljfmt fix](https://github.com/weavejester/cljfmt) with configuration %s"
+                                        (-> request :configuration :name))
+                                 :title "cljfmt fix"
+                                 :type :in-pr})))
 
             (or
              (= "onBranch" (:fix request))
@@ -57,9 +57,9 @@
               (= "onDefaultBranch" (:fix request))
               (is-default-branch? request)))
             (<! (handler (assoc request
-                           :atomist.gitflows/configuration
-                           {:message "running cljfmt fix"
-                            :type :commit-then-push})))
+                                :atomist.gitflows/configuration
+                                {:message "running cljfmt fix"
+                                 :type :commit-then-push})))
 
             :else
             (<! (api/finish request :success (gstring/format "nothing to do: %s policy" (:fix request)) :visibility :hidden))))))
@@ -105,5 +105,3 @@
                                                               (gstring/format "**cljfmt skill** made no fixes")
                                                               :else
                                                               "handled Push successfully"))))})))
-
-
