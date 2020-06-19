@@ -37,12 +37,14 @@ At least one repository must be selected.
     [defaults from `cljfmt`](https://github.com/weavejester/cljfmt/blob/master/cljfmt/resources/cljfmt/indents/clojure.clj) 
     are a great start.
     
-    If you would like to customize the configuration of `cljfmt`, you can add your custom rules here
+    If you would like to customize the configuration of `cljfmt`, you can add a 
+    [config map](https://github.com/weavejester/cljfmt#configuration).  
     
     ![screenshot2](docs/images/screenshot2.png)
-                    
-    A `cljfmt.edn` in the root of any Repo being formatted, will over ride any defaults.
     
+    The keys `:remove-trailing-whitespace?`, `:insert-missing-whitespace?`, `:remove-consecutive-blank-lines?`,
+    `:indents` and `:alias-map`, are all supported.
+                        
 3.  **Select some Repos**
 
     Either select all, if all your Repositories should participate, or choose a subset of Repositories that should 
