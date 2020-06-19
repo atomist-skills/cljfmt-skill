@@ -15,7 +15,7 @@
 
 (defn cljfmt
   "Format files with cljfmt"
-  [dir]
+  [dir opts]
   (log/info "call cljfmt on " dir)
   (let [files (find-files dir)
         wrote (atom false)]
@@ -23,7 +23,7 @@
     (doseq [f files
             :let [original (slurp f)]]
       (try
-        (let [revised (cljfmt.core/reformat-string original)]
+        (let [revised (cljfmt.core/reformat-string original opts)]
           (if (not= original revised)
             (do
               (log/info "Reformatting" f)
