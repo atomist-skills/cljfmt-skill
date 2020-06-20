@@ -1,14 +1,11 @@
 (ns atomist.main
-  (:require [cljs.pprint :refer [pprint]]
-            [cljs.core.async :refer [<! >! timeout chan]]
+  (:require [cljs.core.async :refer [<!]]
             [goog.string.format]
             [atomist.cljs-log :as log]
             [atomist.api :as api]
             [atomist.cljfmt :as cljfmt]
             [goog.string :as gstring]
-            [goog.string.format]
-            [clojure.edn :as edn]
-            [cljs-node-io.core :as io])
+            [clojure.edn :as edn])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
 (defn- is-default-branch?

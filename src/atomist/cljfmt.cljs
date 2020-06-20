@@ -1,7 +1,6 @@
 (ns atomist.cljfmt
   (:require [cljfmt.core]
             [cljs-node-io.core :as io :refer [slurp spit]]
-            [cljs.pprint :refer [pprint]]
             [atomist.cljs-log :as log]))
 
 (def default-options

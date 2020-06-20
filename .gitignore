@@ -8,3 +8,4 @@ classes/
 index.js
 .atomist
 .DS_Store
+.clj-kondo
