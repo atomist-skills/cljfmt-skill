@@ -1,5 +1,5 @@
 {:description "A tool for formatting Clojure code",
- :category ["CODE_REVIEW"],
+ :categories ["CODE_REVIEW"],
  :license "Apache-2.0",
  :resourceProviders
  [{:name "github",
