@@ -14,6 +14,7 @@
  :iconUrl
  "https://clojure.org/images/clojure-logo-120b.png",
  :homepageUrl "https://github.com/atomist-skills/cljformat-skill",
+ :technologies ["CLOJURE"]
  :parameters
  [{:singleChoice
    {:description

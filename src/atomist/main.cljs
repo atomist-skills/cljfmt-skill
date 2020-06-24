@@ -8,12 +8,23 @@
             [clojure.edn :as edn])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
+(defn run-cljfmt [request]
+  (go
+    (try
+      (cljfmt/cljfmt (-> request :project :path)
+                     (merge {} (:cljfmt-opts request)))
+      :done
+      (catch :default ex
+        (log/error ex "unable to run cljfmt")
+        {:error ex
+         :message "unable to run cljfmt"}))))
+
 (defn- is-default-branch?
   [request]
   (let [push (-> request :data :Push first)]
     (= (:branch push) (-> push :repo :defaultBranch))))
 
-(defn- check-cljfmt-config [handler]
+(defn check-cljfmt-config [handler]
   (fn [request]
     (go
       (if (:config request)
@@ -27,7 +38,7 @@
             (<! (api/finish request :failure (gstring/format "%s is not a valid cljfmt map" (:config request))))))
         (<! (handler request))))))
 
-(defn- check-configuration [handler]
+(defn check-configuration [handler]
   (fn [request]
     (go
       (cond (or
@@ -72,19 +83,7 @@
    data
    sendreponse
    (api/dispatch {:OnAnyPush (-> (api/finished)
-                                 (api/from-channel (fn [request]
-                                                     (go (try
-                                                           (cljfmt/cljfmt
-                                                            (-> request :project :path)
-                                                            (merge
-                                                             {}
-                                                             (:cljfmt-opts request)))
-                                                           :done
-                                                           (catch :default ex
-                                                             (log/error "unable to run cljfmt")
-                                                             (log/error ex)
-                                                             {:error ex
-                                                              :message "unable to run cljfmt"})))))
+                                 (api/from-channel run-cljfmt)
                                  (api/edit-inside-PR :atomist.gitflows/configuration)
                                  (api/clone-ref)
                                  (check-configuration)

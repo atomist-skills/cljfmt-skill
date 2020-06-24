@@ -6,6 +6,7 @@ node_modules/
 .shadow-cljs/
 classes/
 index.js
+tests.js
 .atomist
 .DS_Store
 .clj-kondo
