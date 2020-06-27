@@ -1,4 +1,4 @@
-{:description "Format your Clojure/ClojureScript code, get fixes.",
+{:description "Maintain consistent formatting of your Clojure code across repositories, get fixes",
  :categories ["CODE_REVIEW"],
  :license "Apache-2.0",
  :resourceProviders
