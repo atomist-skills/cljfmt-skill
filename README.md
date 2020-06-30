@@ -10,8 +10,14 @@ cljmft makes sure everyone on your team is using the same consistent formatting 
 This skill watches all your team' commits to GitHub, and uses cljfmt to ensure that the code follows consistent formatting guidelines.
 If possibles fixes are detected, the skill will send you those fixes in a pull request, or by commiting directly to a branch.
 
-Even if your developers are already using cljfmt, catch any unformatted changes that might slip through the cracks.  
-Code reviews are so much easier with consistent formatting. cljfmt-skill has your back!
+There are already great ways to integrate [cljfmt][cljfmt] into your local development flow.  
+However, this skill validates and fixes unformatted commits that still manage
+to slip through cracks.  If you never push unformatted commits, then you won't notice this skill is even running.
+
+It does not rely on any project configuration (e.g deps.edn or leiningen project.clj).  Instead,
+it runs `cljfmt fix` whenever the a repository is updated.  
+
+Code reviews are so much better when your team is using the same formatting.
 
 # Before you get started
 
@@ -64,14 +70,7 @@ At least one repository must be selected.
 
 1. **Enjoy automatic formatting!**
 
-There are already great ways to integrate [cljfmt][cljfmt] into your local development flow.  See the docs on
-[editor support here][editor-support].  However, this skill validates and fixes unformatted commits that still manage
-to be pushed.  If you never push unformatted commits, then you won't notice this skill is even running.
-
-It does not rely on any project configuration (e.g deps.edn or leiningen project.clj).  Instead,
-it runs `cljfmt fix` whenever the a repository is updated.  
-
-Code reviews are so much better when your team is using the same formatting.  And a huge thanks to [cljfmt](cljfmt)!
+And a huge thanks to [cljfmt](cljfmt)!
 
 To create feature requests or bug reports, create an [issue in the repository for this skill](https://github.com/atomist-skills/cljfmt-skill/issues). 
 See the [code](https://github.com/atomist-skills/cljfmt-skill) for the skill.
