@@ -15,6 +15,8 @@ Code reviews are so much easier with consistent formatting. cljfmt-skill has you
 
 # Before you get started
 
+1.  **GitHub**
+
 The **GitHub** integration must be configured in order to use this skill. 
 At least one repository must be selected.
 
