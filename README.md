@@ -1,20 +1,22 @@
 # `@atomist/cljformat-skill`
 
-<!---atomist-skill-readme:start--->
-
 Format your Clojure and ClojureScript code with [cljfmt][cljfmt], get pull requests or commits with fixes.
+
+<!---atomist-skill-readme:start--->
   
 # What it's useful for
 
-Keep consistent formatting of your Clojure code across repositories.
+cljmft makes sure everyone on your team is using the same consistent formatting for all Clojure and ClojureScript files.  
+This skill watches all your team' commits to GitHub, and uses cljfmt to ensure that the code follows consistent formatting guidelines.
+If possibles fixes are detected, the skill will send you those fixes in a pull request, or by commiting directly to a branch.
 
-* Run `cljfmt` with the same consistent configuration across all of your Clojure code
-* Get commits or pull requests with fixes
+Even if your developers are already using cljfmt, catch any unformatted changes that might slip through the cracks.  
+Code reviews are so much easier with consistent formatting. cljfmt-skill has your back!
 
 # Before you get started
 
 The **GitHub** integration must be configured in order to use this skill. 
-At least one repository must be selected. 
+At least one repository must be selected.
 
 # How to configure
 
