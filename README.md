@@ -1,20 +1,30 @@
 # `@atomist/cljformat-skill`
 
-<!---atomist-skill-readme:start--->
-
 Format your Clojure and ClojureScript code with [cljfmt][cljfmt], get pull requests or commits with fixes.
+
+<!---atomist-skill-readme:start--->
   
 # What it's useful for
 
-Keep consistent formatting of your Clojure code across repositories.
+cljmft makes sure everyone on your team is using the same consistent formatting for all Clojure and ClojureScript files.  
+This skill watches all your team' commits to GitHub, and uses cljfmt to ensure that the code follows consistent formatting guidelines.
+If possibles fixes are detected, the skill will send you those fixes in a pull request, or by commiting directly to a branch.
 
-* Run `cljfmt` with the same consistent configuration across all of your Clojure code
-* Get commits or pull requests with fixes
+There are already great ways to integrate [cljfmt][cljfmt] into your local development flow.  
+However, this skill validates and fixes unformatted commits that still manage
+to slip through cracks.  If you never push unformatted commits, then you won't notice this skill is even running.
+
+It does not rely on any project configuration (e.g deps.edn or leiningen project.clj).  Instead,
+it runs `cljfmt fix` whenever the a repository is updated.  
+
+Code reviews are so much better when your team is using the same formatting.
 
 # Before you get started
 
+1.  **GitHub**
+
 The **GitHub** integration must be configured in order to use this skill. 
-At least one repository must be selected. 
+At least one repository must be selected.
 
 # How to configure
 
@@ -60,14 +70,7 @@ At least one repository must be selected.
 
 1. **Enjoy automatic formatting!**
 
-There are already great ways to integrate [cljfmt][cljfmt] into your local development flow.  See the docs on
-[editor support here][editor-support].  However, this skill validates and fixes unformatted commits that still manage
-to be pushed.  If you never push unformatted commits, then you won't notice this skill is even running.
-
-It does not rely on any project configuration (e.g deps.edn or leiningen project.clj).  Instead,
-it runs `cljfmt fix` whenever the a repository is updated.  
-
-Code reviews are so much better when your team is using the same formatting.  And a huge thanks to [cljfmt](cljfmt)!
+And a huge thanks to [cljfmt](cljfmt)!
 
 To create feature requests or bug reports, create an [issue in the repository for this skill](https://github.com/atomist-skills/cljfmt-skill/issues). 
 See the [code](https://github.com/atomist-skills/cljfmt-skill) for the skill.
