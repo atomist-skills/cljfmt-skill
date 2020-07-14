@@ -34,7 +34,7 @@
     "src"
     "--namespace"
     "atomist.skill-meta"
-    "--formats"
+    "--formats" 
     "cljs" 
     "--without-sign" 
     "--prefix" 
