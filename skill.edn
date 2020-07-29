@@ -1,5 +1,5 @@
 {:description "Maintain consistent formatting of your Clojure code across repositories, get fixes",
- :categories ["CODE_REVIEW"],
+ :categories ["CODE_QUALITY"],
  :license "Apache-2.0",
  :resourceProviders
  [{:name "github",
