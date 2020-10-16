@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/cljformat-skill/compare/0.2.3...HEAD)
 
+### Changed
+
+-   Update skill categories. [30b3805](https://github.com/atomist-skills/cljfmt-skill/commit/30b380512c3c4c432a57df15cff2b4e74c709703)
+
 ## [0.2.3](https://github.com/atomist-skills/cljformat-skill/compare/0.2.2...0.2.3) - 2020-07-29
 
 ## [0.2.2](https://github.com/atomist-skills/cljformat-skill/compare/0.2.1...0.2.2) - 2020-06-25
@@ -18,4 +22,3 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.1.20](https://github.com/atomist-skills/cljformat-skill/compare/0.1.19...0.1.20) - 2020-06-20
 
 ## [0.1.19](https://github.com/atomist-skills/cljformat-skill/compare/0.1.18...0.1.19) - 2020-06-19
-
