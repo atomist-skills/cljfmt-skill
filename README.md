@@ -83,7 +83,7 @@ least one repository must be selected.
 
 1. **Enjoy automatic formatting!**
 
-And a huge thanks to [cljfmt](cljfmt)!
+And a huge thanks to [cljfmt][cljfmt]!
 
 To create feature requests or bug reports, create an
 [issue in the repository for this skill](https://github.com/atomist-skills/cljfmt-skill/issues).
