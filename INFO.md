@@ -1,10 +1,3 @@
-# `@atomist/cljformat-skill`
-
-Format your Clojure and ClojureScript code with [cljfmt][cljfmt], get pull
-requests or commits with fixes.
-
-<!---atomist-skill-readme:start--->
-
 # What it's useful for
 
 cljmft makes sure everyone on your team is using the same consistent formatting
@@ -92,12 +85,3 @@ See the [code](https://github.com/atomist-skills/cljfmt-skill) for the skill.
 [cljfmt]: https://github.com/weavejester/cljfmt
 [editor-support]: https://github.com/weavejester/cljfmt#editor-support
 [configuration]: https://github.com/weavejester/cljfmt#configuration
-
-<!---atomist-skill-readme:end--->
-
----
-
-Created by [Atomist][atomist]. Need Help? [Join our Slack workspace][slack].
-
-[atomist]: https://atomist.com/ "Atomist - How Teams Deliver Software"
-[slack]: https://join.atomist.com/ "Atomist Community Slack"
