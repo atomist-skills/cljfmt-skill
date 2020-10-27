@@ -1,19 +1,4 @@
 {
-  "name": "@atomist/cljformat",
-  "version": "0.1.0",
-  "author": "jim@atomist.com",
-  "description": "Format clojure(script) code",
-  "scripts": {
-    "build:watch": "shadow-cljs watch dev",
-    "build": "shadow-cljs release release",
-    "test": "shadow-cljs compile test",
-    "bundle": "bundle",
-    "skill": "npm run build && npm run bundle",
-    "atm:lint:prettier": "prettier --write"
-  },
-  "dependencies": {
-    "@atomist/api-cljs": "^0.4.116"
-  },
   "devDependencies": {
     "@atomist/skill-bundler": "^0.1.28",
     "husky": "^4.3.0",
@@ -23,13 +8,28 @@
     "source-map-support": "0.5.9",
     "ws": "^7.3.1"
   },
+  "dependencies": {
+    "@atomist/api-cljs": "^0.4.113"
+  },
+  "author": "jim@atomist.com",
+  "name": "@atomist/cljformat",
   "main": "node_modules/@atomist/api-cljs/app.js",
+  "lint-staged": {
+    "**/*.@(graphql|json|markdown|yaml|yml|md)": "npm run atm:lint:prettier"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
-  "lint-staged": {
-    "**/*.@(graphql|json|markdown|yaml|yml|md)": "npm run atm:lint:prettier"
+  "version": "0.1.0",
+  "description": "Format clojure(script) code",
+  "scripts": {
+    "build:watch": "shadow-cljs watch dev -A:dev:test",
+    "build": "shadow-cljs release release -A:dev:build",
+    "test": "shadow-cljs compile test",
+    "bundle": "bundle",
+    "skill": "npm run build && npm run bundle",
+    "atm:lint:prettier": "prettier --write"
   }
 }
