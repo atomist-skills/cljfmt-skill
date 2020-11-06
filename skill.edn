@@ -24,7 +24,6 @@
  :displayName "cljfmt",
  :name "cljfmt-skill",
  :author "Atomist",
- :dispatch "multiple",
  :iconUrl
  "https://clojure.org/images/clojure-logo-120b.png",
  :homepageUrl "https://github.com/atomist-skills/cljfmt-skill",
