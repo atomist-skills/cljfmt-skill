@@ -5,7 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/atomist-skills/cljformat-skill/compare/0.3.1...HEAD)
+## [Unreleased](https://github.com/atomist-skills/cljformat-skill/compare/0.3.2...HEAD)
+
+## [0.3.2](https://github.com/atomist-skills/cljformat-skill/compare/0.3.1...0.3.2) - 2020-11-06
 
 ## [0.3.1](https://github.com/atomist-skills/cljformat-skill/compare/0.3.0...0.3.1) - 2020-10-27
 
