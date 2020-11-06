@@ -3,6 +3,6 @@
 
 (def module-name "cljfmt-skill")
 (def path ".")
-(def version "0.3.1")
-(def tag "0.3.1")
-(def generated-at "2020-10-27T04:35:58Z")
+(def version "0.3.2")
+(def tag "0.3.2")
+(def generated-at "2020-11-06T21:30:52Z")
