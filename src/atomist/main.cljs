@@ -40,20 +40,22 @@
 
 (defn check-cljfmt-config [handler]
   (fn [request]
+    (api/trace "check-cljfmt-config")
     (go
-      (if (:config request)
+      (if-let [config (-> request :config :config)]
         (try
-          (let [c (edn/read-string (:config request))]
+          (let [c (edn/read-string config)]
             (if (not (map? c))
-              (<! (api/finish request :failure (gstring/format "%s is not a valid cljmt map" (:config request))))
+              (<! (api/finish request :failure (gstring/format "%s is not a valid cljmt map" config)))
               (<! (handler (assoc request :cljfmt-opts c)))))
           (catch :default ex
-            (log/warn ex "error parsing edn " (:config request))
-            (<! (api/finish request :failure (gstring/format "%s is not a valid cljfmt map" (:config request))))))
+            (log/warn ex "error parsing edn " config)
+            (<! (api/finish request :failure (gstring/format "%s is not a valid cljfmt map" config)))))
         (<! (handler request))))))
 
 (defn check-configuration [handler]
   (fn [request]
+    (api/trace (gstring/format "check-configuration %s, %s" (:fix request) (:config request)))
     (go
       (cond (or
              (= "inPR" (:fix request))
@@ -66,7 +68,7 @@
                                  :target-branch (-> request :ref :branch)
                                  :body (gstring/format
                                         "running [cljfmt fix](https://github.com/weavejester/cljfmt) with configuration %s"
-                                        (-> request :configuration :name))
+                                        (-> request :skill :configuration :name))
                                  :title "cljfmt fix"
                                  :type :in-pr})))
 
@@ -102,7 +104,7 @@
                                  (api/clone-ref)
                                  (check-configuration)
                                  (check-cljfmt-config)
-                                 (api/add-skill-config :fix :config)
+                                 (api/add-skill-config)
                                  (api/extract-github-token)
                                  (api/create-ref-from-event)
                                  (api/status :send-status (fn [request]
