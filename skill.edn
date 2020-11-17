@@ -24,8 +24,7 @@
  :displayName "cljfmt",
  :name "cljfmt-skill",
  :author "Atomist",
- :iconUrl
- "https://clojure.org/images/clojure-logo-120b.png",
+ :iconUrl "https://raw.githubusercontent.com/atomist-skills/cljfmt-skill/main/docs/images/icon.svg",
  :homepageUrl "https://github.com/atomist-skills/cljfmt-skill",
  :technologies ["CLOJURE"]
  :parameters
