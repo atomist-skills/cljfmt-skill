@@ -9,7 +9,7 @@ This page details all runtime dependencies of `@atomist/cljformat`.
 | License                         | Count |
 | ------------------------------- | ----- |
 | [0BSD](#0bsd)                   | 4     |
-| [Apache-2.0](#apache-20)        | 39    |
+| [Apache-2.0](#apache-20)        | 38    |
 | [BSD-2-Clause](#bsd-2-clause)   | 10    |
 | [BSD-3-Clause](#bsd-3-clause)   | 23    |
 | [CC-BY-4.0](#cc-by-40)          | 1     |
@@ -40,7 +40,6 @@ Apache License 2.0 - [http://www.apache.org/licenses/LICENSE-2.0](http://www.apa
 
 | Name                                  | Version          | Publisher             | Repository                                                                                                                       |
 | ------------------------------------- | ---------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `@atomist/skill-logging`              | `1.0.3`          | Atomist, Inc.         | [https://github.com/atomist-skills/skill-logging](https://github.com/atomist-skills/skill-logging)                               |
 | `@atomist/skill-logging`              | `1.0.4`          | Atomist, Inc.         | [https://github.com/atomist-skills/skill-logging](https://github.com/atomist-skills/skill-logging)                               |
 | `@atomist/skill`                      | `0.10.1-main.30` | Atomist, Inc.         | [https://github.com/atomist-skills/skill](https://github.com/atomist-skills/skill)                                               |
 | `@atomist/slack-messages`             | `1.2.2`          | Atomist               | [https://github.com/atomist/slack-messages](https://github.com/atomist/slack-messages)                                           |
@@ -839,7 +838,7 @@ Python License 2.0 - [https://opensource.org/licenses/Python-2.0](https://openso
 
 | Name                | Version  | Publisher       | Repository |
 | ------------------- | -------- | --------------- | ---------- |
-| `@atomist/api-cljs` | `0.5.46` | jim@atomist.com |            |
+| `@atomist/api-cljs` | `0.5.51` | jim@atomist.com |            |
 
 ## Contact
 
