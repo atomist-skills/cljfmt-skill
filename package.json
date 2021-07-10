@@ -9,7 +9,7 @@
     "ws": "^7.5.3"
   },
   "dependencies": {
-    "@atomist/api-cljs": "^0.5.68"
+    "@atomist/api-cljs": "^0.5.71"
   },
   "author": "jim@atomist.com",
   "name": "@atomist/cljformat",
